@@ -1,7 +1,9 @@
 import React from 'react' 
 
-const Language = ({lang , selectedLanguage , updateLanguage}) => (
-  <li
-    style={selectedLanguage == l ? {color: 'red'} : null } 
-    onClick={updateLanguage.bind(null, l)}>{l}</li>
+const LangItem = ({lang , selectedLanguage , updateLanguage}) => (
+  <li style={selectedLanguage === lang ? {color: 'red'} : null } 
+    onClick={updateLanguage.bind(null, lang)}>{lang}</li>
 )
+
+
+export default LangItem

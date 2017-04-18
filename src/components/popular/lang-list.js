@@ -3,7 +3,7 @@ import LangItem from './lang-item'
 
 const LangList = ({ langs , updateLanguage , selectedLanguage }) => (
 <ul className="languages">
-  {langs.map(l => <LangItem key={l} updateLanguage={updateLanguage} selectedLanguage={selectedLanguage} />)} 
+  {langs.map(l => <LangItem key={l} lang={l} updateLanguage={updateLanguage} selectedLanguage={selectedLanguage} />)} 
 </ul>
 )
 

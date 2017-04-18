@@ -1,5 +1,5 @@
 import React , {Component} from 'react' 
-import SelectLanguage from './select-language'
+import SelectLanguage from './lang-list'
 import './popular.css'  
 
 
