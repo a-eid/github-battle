@@ -1,0 +1,20 @@
+.languages{
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.languages li{
+  list-style-type: none;
+  display: inline-block;
+  padding: 1em;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.5 ease-in-out;
+}
+
+.languages li:hover{
+  color: red;
+}
+
