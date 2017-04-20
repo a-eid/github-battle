@@ -1,0 +1,21 @@
+.nav{
+  position: absolute;
+  top: 0;
+  left:0;
+  right:0;
+  background: #eee;
+}
+
+.nav div{
+  max-width: 1200px;
+  margin: auto;
+}
+.nav a{
+  display: inline-block;
+  padding: 1em;
+}
+
+.active{
+  font-weight: bold;
+  color: #333;
+}
