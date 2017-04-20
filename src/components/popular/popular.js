@@ -1,4 +1,5 @@
 import React , {Component} from 'react' 
+import Loading from '../loading/react-loading' 
 import SelectLanguage from './lang-list'
 import RepoGrid from './repo-grid'
 import api from '../../utils/api'
@@ -37,7 +38,7 @@ class Popular extends Component{
     return(
       <div className="container">
         <SelectLanguage langs={langs} selectedLanguage={selectedLanguage} updateLanguage={this.updateLanguage} />
-        { !(repos.length > 0) ? <p> Loading </p> :<RepoGrid repos={repos} /> }
+        { !(repos.length > 0) ? <Loading  type='bubbles' color='#e3e3e3' /> :<RepoGrid repos={repos} /> }
       </div>
     )
   }
