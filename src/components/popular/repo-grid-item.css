@@ -1,0 +1,19 @@
+li{
+  list-style-type: none;
+}
+
+.repo-grid-item{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  margin: 1em;
+}
+
+.avatar{
+  max-width: 100%;
+  margin: 0.3em 0 ;
+  border-radius: 30%;
+}
+

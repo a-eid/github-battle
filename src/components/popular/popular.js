@@ -1,26 +1,44 @@
 import React , {Component} from 'react' 
 import SelectLanguage from './lang-list'
+import RepoGrid from './repo-grid'
+import api from '../../utils/api'
 import './popular.css'  
-
 
 class Popular extends Component{
   constructor(props){
     super(props)
     this.state = {
-      selectedLanguage: "All"
+      selectedLanguage: "All",
+      repos: [] 
     }
   }
 
   updateLanguage = (selectedLanguage) => {
-    this.setState(_ => ({
-      selectedLanguage
-    }))
+    this.setState( _ => ({
+      selectedLanguage ,
+      repos: []
+    })) 
+
+    api.fetchPopularRepos(selectedLanguage)
+      .then(repos => this.setState( _=> ({
+        repos 
+      })))    
+
+  }
+
+  componentDidMount(){
+    this.updateLanguage(this.state.selectedLanguage)
   }
 
   render(){
     const langs = ['All' , 'Javascript' , 'Ruby' , 'Java' , 'Css' , 'Python']
+    const {repos , selectedLanguage} = this.state 
+
     return(
-      <SelectLanguage langs={langs} selectedLanguage={this.state.selectedLanguage} updateLanguage={this.updateLanguage} />
+      <div className="container">
+        <SelectLanguage langs={langs} selectedLanguage={selectedLanguage} updateLanguage={this.updateLanguage} />
+        { !(repos.length > 0) ? <p> Loading </p> :<RepoGrid repos={repos} /> }
+      </div>
     )
   }
 }
