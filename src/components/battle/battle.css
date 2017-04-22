@@ -1,8 +1,9 @@
 .battle {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   padding-top: 100px;
+  flex-direction: column;
 }
 .form{
   display: flex;
@@ -11,7 +12,35 @@
   flex-direction: column;
 }
 
-/*.player-wrapper{
-  width: 100vw;
-}*/
- 
+.player-wrapper{
+  display: flex;
+  justify-content: space-around; 
+  align-items: center;
+  width: 100%; 
+}
+
+.submit{
+  margin: 50px;
+}
+
+.player{
+  max-width: 450px;
+  max-height: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.player img {
+ max-width: 60%;
+}
+
+.player h3 {
+  margin: 0 ;
+}
+
+.player p {
+  margin: 0 ;
+}

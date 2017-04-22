@@ -3,24 +3,27 @@ import "./battle.css"
 import {fetchUser} from '../../utils/api'
 import PlayerForm from './player-form'
 import Player from './player' 
+import Submit from './submit'
 
 export default class extends Component{
   constructor(props){
     super(props)
     this.state = {
       pOne:{
+        index: 1 , 
         name: undefined , 
         pic : undefined ,
         score: undefined , 
         url: "", 
-        valid: false 
+        valid: false  
       },
       pTwo:{
+        index: 2 , 
         name: undefined , 
         pic: undefined ,
         url: "", 
         score: undefined , 
-        valid: false 
+        valid: false  
       }
     }
   }
@@ -45,12 +48,11 @@ export default class extends Component{
       })
       .catch(e => console.log(e))
     }else if (player === "2"){
-      console.log('here')
       fetchUser(username)
       .then( u => {
         this.setState(ps => ({
           pTwo:{
-            ...ps.pTwo,
+            ...ps.pTwo , 
             name: u.name , 
             url: u.html_url , 
             score: 1000 , 
@@ -66,24 +68,34 @@ export default class extends Component{
     }
   }
 
+  handleReset = (index) => {
+    let p = index === 1 ? "pOne" : "pTwo"
+    this.setState({
+      [p]:{
+        index , 
+        valid: false  
+      }
+    })
+  }
+
   render(){
     const {pOne , pTwo} = this.state
     return(
-      <div className="battle">
-        {pOne.valid ? <Player player={pOne} username={pOne.name} /> :
-          <PlayerForm handleSubmitPlayer={this.handleSubmitPlayer} 
-          player="1"/> } 
-        {pTwo.valid ? <Player player={pOne} username={pOne.name} /> : 
-          <PlayerForm handleSubmitPlayer={this.handleSubmitPlayer} 
-          player="2"/> } 
-        {pOne.valid && pTwo.valid ? <Submit /> : null }
-      </div>
+      <div className="battle" > 
+        <div className="player-wrapper">
+
+          {pOne.valid ? <Player player={pOne}  handleReset={this.handleReset} /> :
+            <PlayerForm handleSubmitPlayer={this.handleSubmitPlayer} 
+            player="1" /> } 
+
+          {pTwo.valid ? <Player player={pTwo}  handleReset={this.handleReset} /> : 
+            <PlayerForm handleSubmitPlayer={this.handleSubmitPlayer} 
+            player="2" /> } 
+            
+        </div>
+      {pOne.valid && pTwo.valid ? <Submit /> : null }
+     </div>
     )
   }
 }
 
-
-// idk , 
-const Submit = () => (
-  <button>Submit</button>
-)
