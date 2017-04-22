@@ -8,6 +8,7 @@
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
+  cursor: pointer;
 }
 .btn:active{
   transform: translateY(3px);
@@ -28,4 +29,16 @@
 .btn-primary:active, .btn-primary.active {
     background: #007299;
     box-shadow: none;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: .5rem 1rem;
+  font-size: 1rem;
+  line-height: 1.25rem;
+  color: #333;
+  background-image: none;
+  background-clip: padding-box;
+  /*border: $input-btn-border-width solid $input-border-color;*/
 }

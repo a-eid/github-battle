@@ -1,0 +1,17 @@
+.battle {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 100px;
+}
+.form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/*.player-wrapper{
+  width: 100vw;
+}*/
+ 

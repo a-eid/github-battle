@@ -2,7 +2,7 @@ import React , {Component} from 'react'
 import Loading from '../loading/react-loading' 
 import SelectLanguage from './lang-list'
 import RepoGrid from './repo-grid'
-import api from '../../utils/api'
+import {fetchPopularRepos} from '../../utils/api'
 import './popular.css'  
 
 class Popular extends Component{
@@ -20,7 +20,7 @@ class Popular extends Component{
       repos: []
     })) 
 
-    api.fetchPopularRepos(selectedLanguage)
+    fetchPopularRepos(selectedLanguage)
       .then(repos => this.setState( _=> ({
         repos 
       })))    
